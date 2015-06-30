@@ -14,7 +14,6 @@ module Embulk
         }
 
         columns = task["schema"].each_with_index.map do |c, i|
-          # ここにネストの場合の処理を書く
           c["type"] = "string" if c["type"] == "json"
           Column.new(i, c["name"], c["type"].to_sym)
         end
