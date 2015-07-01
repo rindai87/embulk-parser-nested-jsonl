@@ -9,8 +9,7 @@ TODO: Write short description here and embulk-parser-nested-jsonl.gemspec file.
 
 ## Configuration
 
-- **property1**: description (string, required)
-- **property2**: description (integer, default: default-value)
+- **schema**: specify column name and type (array, required)
 
 ## Example
 
@@ -19,8 +18,10 @@ in:
   type: any file input plugin type
   parser:
     type: nested-jsonl
-    property1: example1
-    property2: example2
+    schema:
+    - {name: full_name, type: string}
+    - {name: age, type: long}
+    - {name: address, type: string}
 ```
 
 (If guess supported) you don't have to write `parser:` section in the configuration file. After writing `in:` section, you can let embulk guess `parser:` section using this command:
